@@ -1,0 +1,15 @@
+#! /bin/bash
+
+i=0
+
+src_array=( "src"/* )
+screen_array=( "screen"/* )
+
+for j in ${src_array[@]}
+do
+	a=${src_array[i]}
+	b=${screen_array[i]}
+	c=result/$(basename $a)
+	magick compare $a $b $c
+	let i=$i+1
+done
